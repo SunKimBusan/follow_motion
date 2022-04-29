@@ -1,0 +1,265 @@
+#VRML_SIM R2022a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the Arm4dof
+# Extracted from: arm_4dof.urdf
+
+PROTO Arm4dof [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "Arm4dof"  # Is `Robot.name`.
+  field  SFString    controller      "ros"     # Is `Robot.controller`.
+  field  MFString    controllerArgs  []         # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""         # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE      # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE       # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE      # Is `Robot.selfCollision`.
+  field  SFBool      staticBase      TRUE       # Defines if the robot base should be pinned to the static environment.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Shape {
+        appearance DEF silver PBRAppearance {
+          baseColor 0.500000 0.500000 0.500000
+          transparency 0.000000
+          roughness 1.000000
+          metalness 0
+          emissiveColor 0.000000 0.000000 0.000000
+        }
+        geometry DEF base_link Mesh {
+          url "/home/sj/Desktop/followMotion_ws/src/arm_4dof_description/arm_4dof_description/meshes/base_link.stl"
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 1.000000 0.000000 0.000000
+          anchor -0.013590 0.000000 0.000000
+          dampingConstant 0.0
+          staticFriction 0.0
+        }
+        device [
+          RotationalMotor {
+            name "Rev1"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "Rev1_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation -0.013590 0.000000 0.000000
+          rotation 0.000000 1.000000 0.000000 0.000000
+          children [
+            Transform {
+              translation 0.013590 0.000000 -0.000000
+              rotation 0.000000 1.000000 0.000000 0.000000
+              children [
+                Shape {
+                  appearance USE silver
+                  geometry DEF link1_1 Mesh {
+                    url "/home/sj/Desktop/followMotion_ws/src/arm_4dof_description/arm_4dof_description/meshes/link1_1.stl"
+                  }
+                }
+              ]
+            }
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                axis 0.000000 -1.000000 -0.000000
+                anchor 0.086500 0.048600 -0.000000
+                dampingConstant 0.0
+                staticFriction 0.0
+              }
+              device [
+                RotationalMotor {
+                  name "Rev2"
+                  maxTorque 10000
+                }
+                PositionSensor {
+                  name "Rev2_sensor"
+                }
+              ]
+              endPoint Solid {
+                translation 0.086500 0.048600 -0.000000
+                rotation 0.000000 1.000000 0.000000 0.000000
+                children [
+                  Transform {
+                    translation -0.072910 -0.048600 0.000000
+                    rotation 0.000000 1.000000 0.000000 0.000000
+                    children [
+                      Shape {
+                        appearance USE silver
+                        geometry DEF link2_1 Mesh {
+                          url "/home/sj/Desktop/followMotion_ws/src/arm_4dof_description/arm_4dof_description/meshes/link2_1.stl"
+                        }
+                      }
+                    ]
+                  }
+                  HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0.000000 0.000000 -1.000000
+                      anchor 0.000000 -0.048600 -0.004500
+                      dampingConstant 0.0
+                      staticFriction 0.0
+                    }
+                    device [
+                      RotationalMotor {
+                        name "Rev3"
+                        maxTorque 10000
+                      }
+                      PositionSensor {
+                        name "Rev3_sensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 0.000000 -0.048600 -0.004500
+                      rotation 0.000000 1.000000 0.000000 0.000000
+                      children [
+                        Transform {
+                          translation -0.072910 -0.000000 0.004500
+                          rotation 0.000000 1.000000 0.000000 0.000000
+                          children [
+                            Shape {
+                              appearance USE silver
+                              geometry DEF link3_1 Mesh {
+                                url "/home/sj/Desktop/followMotion_ws/src/arm_4dof_description/arm_4dof_description/meshes/link3_1.stl"
+                              }
+                            }
+                          ]
+                        }
+                        HingeJoint {
+                          jointParameters HingeJointParameters {
+                            axis -1.000000 0.000000 -0.000000
+                            anchor 0.016500 0.000000 -0.245500
+                            dampingConstant 0.0
+                            staticFriction 0.0
+                          }
+                          device [
+                            RotationalMotor {
+                              name "Rev4"
+                              maxTorque 10000
+                            }
+                            PositionSensor {
+                              name "Rev4_sensor"
+                            }
+                          ]
+                          endPoint Solid {
+                            translation 0.016500 0.000000 -0.245500
+                            rotation 0.000000 1.000000 0.000000 0.000000
+                            children [
+                              Transform {
+                                translation -0.089410 -0.000000 0.250000
+                                rotation 0.000000 1.000000 0.000000 0.000000
+                                children [
+                                  Shape {
+                                    appearance USE silver
+                                    geometry DEF link4_1 Mesh {
+                                      url "/home/sj/Desktop/followMotion_ws/src/arm_4dof_description/arm_4dof_description/meshes/link4_1.stl"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                            name "link4_1"
+                            boundingObject Transform {
+                              translation -0.089410 -0.000000 0.250000
+                              rotation 0.000000 1.000000 0.000000 0.000000
+                              children [
+                                USE link4_1
+                              ]
+                            }
+                            physics Physics {
+                              density -1
+                              mass 1.256059
+                              centerOfMass [ -0.016709 -0.119354 0.001811 ]
+                              inertiaMatrix [
+                                1.166800e-02 8.510000e-04 1.164300e-02
+                                -5.900000e-05 -6.000000e-06 3.710000e-04
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                      name "link3_1"
+                      boundingObject Transform {
+                        translation -0.072910 -0.000000 0.004500
+                        rotation 0.000000 1.000000 0.000000 0.000000
+                        children [
+                          USE link3_1
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 2.533929
+                        centerOfMass [ -0.000182 0.000195 -0.116730 ]
+                        inertiaMatrix [
+                          1.217100e-02 1.228000e-02 2.549000e-03
+                          -1.200000e-05 3.000000e-06 -1.600000e-05
+                        ]
+                      }
+                    }
+                  }
+                ]
+                name "link2_1"
+                boundingObject Transform {
+                  translation -0.072910 -0.048600 0.000000
+                  rotation 0.000000 1.000000 0.000000 0.000000
+                  children [
+                    USE link2_1
+                  ]
+                }
+                physics Physics {
+                  density -1
+                  mass 0.680266
+                  centerOfMass [ -0.000058 -0.034682 0.011380 ]
+                  inertiaMatrix [
+                    6.010000e-04 3.900000e-04 6.770000e-04
+                    -1.000000e-06 -0.000000e+00 6.700000e-05
+                  ]
+                }
+              }
+            }
+          ]
+          name "link1_1"
+          boundingObject Transform {
+            translation 0.013590 0.000000 -0.000000
+            rotation 0.000000 1.000000 0.000000 0.000000
+            children [
+              USE link1_1
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 2.536285
+            centerOfMass [ 0.039806 0.050081 -0.000006 ]
+            inertiaMatrix [
+              4.558000e-03 5.259000e-03 5.408000e-03
+              -1.468000e-03 1.000000e-06 -0.000000e+00
+            ]
+          }
+        }
+      }
+    ]
+    name IS name
+    boundingObject USE base_link
+    %{ if fields.staticBase.value == false then }%
+    physics Physics {
+      density -1
+      mass 1.007549
+      centerOfMass [ -0.041392 -0.000000 0.003567 ]
+      inertiaMatrix [
+        1.477000e-03 9.240000e-04 1.055000e-03
+        -0.000000e+00 4.600000e-05 0.000000e+00
+      ]
+    }
+    %{ end }%
+  }
+}

@@ -1,0 +1,9 @@
+Header header
+geometry_msgs/Vector3 Spine
+geometry_msgs/Vector3 Nose
+geometry_msgs/Vector3 Lshoulder
+geometry_msgs/Vector3 Lelbow
+geometry_msgs/Vector3 Lwrist
+geometry_msgs/Vector3 Rshoulder
+geometry_msgs/Vector3 Relbow
+geometry_msgs/Vector3 Rwrist
