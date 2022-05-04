@@ -12,7 +12,6 @@
 #include <webots_ros/get_string.h>
 
 #include <std_msgs/String.h>
-#include "cnpy.h"
 #include <webots_ros/MotionData.h>
 #include <Eigen/Dense>
 
