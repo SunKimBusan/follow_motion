@@ -384,28 +384,28 @@ void calcJointStates(const openpose_ros_msgs::OpenPoseHuman3D &person_to_follow)
       theta2 = -acos(w_s_vector_4_dash.coeff(1)/(link2*sin(theta3)));
 
     // LeftShoulder
-    theta0 = joint_filter.setRawSeq1(theta0);
+    //theta0 = joint_filter.setRawSeq1(theta0);
     if (theta0 < -M_PI)
       theta0 = -M_PI;
     else if (theta0 > M_PI/6)
       theta0 = M_PI/6;
 
     // LeftArm
-    theta1 = joint_filter.setRawSeq2(theta1);
+    //theta1 = joint_filter.setRawSeq2(theta1);
     if (theta1 < 0)
       theta1 = 0;
     else if (theta1 > M_PI*3/4)
       theta1 = M_PI*3/4;
 
     // LeftElbow
-    theta2 = joint_filter.setRawSeq3(theta2);
+    //theta2 = joint_filter.setRawSeq3(theta2);
     if (theta2 < -M_PI/4)
       theta2 = -M_PI/4;
     else if (theta2 > M_PI*3/4)
       theta2 = M_PI*3/4;
 
     // LeftForearm
-    theta3 = joint_filter.setRawSeq4(theta3);
+    //theta3 = joint_filter.setRawSeq4(theta3);
     if (theta3 < 0)
       theta3 = 0;
     else if (theta3 > M_PI*5/6)
@@ -533,28 +533,28 @@ void calcJointStates(const openpose_ros_msgs::OpenPoseHuman3D &person_to_follow)
       theta2 = -acos(w_s_vector_4_dash.coeff(1)/(link2*sin(theta3)));
 
     // RightShoulder
-    theta0 = joint_filter.setRawSeq5(theta0);
+    //theta0 = joint_filter.setRawSeq5(theta0);
     if (theta0 < -M_PI)
       theta0 = -M_PI;
     else if (theta0 > M_PI/6)
       theta0 = M_PI/6;
 
     // RightArm
-    theta1 = joint_filter.setRawSeq6(theta1);
+    //theta1 = joint_filter.setRawSeq6(theta1);
     if (theta1 > 0)
       theta1 = 0;
     else if (theta1 < -M_PI*3/4)
       theta1 = -M_PI*3/4;
 
     // RightElbow
-    theta2 = joint_filter.setRawSeq7(theta2);
+    //theta2 = joint_filter.setRawSeq7(theta2);
     if (theta2 > M_PI/4)
       theta2 = M_PI/4;
     else if (theta2 < -M_PI*3/4)
       theta2 = -M_PI*3/4;
 
     // RightForearm
-    theta3 = joint_filter.setRawSeq8(theta3);
+    //theta3 = joint_filter.setRawSeq8(theta3);
     if (theta3 < 0)
       theta3 = 0;
     else if (theta3 > M_PI*5/6)
