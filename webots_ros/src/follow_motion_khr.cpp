@@ -614,35 +614,35 @@ void publishJointStates(){
 
   dxl_position.request.addr_name = "Goal_Position";
 
-  dxl_position.request.id = 1;
+  dxl_position.request.id = 11;
   dxl_position.request.value = radian2value(l_sho_pitch+M_PI);
   set_dxl_position_client.call(dxl_position);
 
-  dxl_position.request.id = 2;
+  dxl_position.request.id = 12;
   dxl_position.request.value = radian2value(-l_sho_roll+M_PI);
   set_dxl_position_client.call(dxl_position);
 
-  dxl_position.request.id = 3;
+  dxl_position.request.id = 13;
   dxl_position.request.value = radian2value(l_el_pitch+M_PI);
   set_dxl_position_client.call(dxl_position);
 
-  dxl_position.request.id = 4;
+  dxl_position.request.id = 14;
   dxl_position.request.value = radian2value(l_el+M_PI);
   set_dxl_position_client.call(dxl_position);
 
-  dxl_position.request.id = 5;
+  dxl_position.request.id = 15;
   dxl_position.request.value = radian2value(-r_sho_pitch+M_PI);
   set_dxl_position_client.call(dxl_position);
 
-  dxl_position.request.id = 6;
+  dxl_position.request.id = 16;
   dxl_position.request.value = radian2value(-r_sho_roll+M_PI);
   set_dxl_position_client.call(dxl_position);
 
-  dxl_position.request.id = 7;
+  dxl_position.request.id = 17;
   dxl_position.request.value = radian2value(r_el_pitch+M_PI);
   set_dxl_position_client.call(dxl_position);
 
-  dxl_position.request.id = 8;
+  dxl_position.request.id = 18;
   dxl_position.request.value = radian2value(-r_el+M_PI);
   set_dxl_position_client.call(dxl_position);
 }
