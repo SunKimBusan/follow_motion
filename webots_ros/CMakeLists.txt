@@ -304,6 +304,16 @@ target_link_libraries(play_motion_khr
   ${OpenCV_LIBS}
 )
 
+#instructions for play_motion_opencr node
+
+add_executable(play_motion_opencr src/play_motion_opencr.cpp src/Point.cpp src/joint_filter.cpp)
+add_dependencies(play_motion_opencr webots_ros_generate_messages_cpp)
+
+target_link_libraries(play_motion_opencr
+	${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
+)
+
 #############
 ## Install ##
 #############
@@ -333,6 +343,9 @@ install(TARGETS follow_motion_khr
         RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 install(TARGETS play_motion_khr
+        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+install(TARGETS play_motion_opencr
         RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 catkin_install_python(PROGRAMS scripts/ros_controller.py
