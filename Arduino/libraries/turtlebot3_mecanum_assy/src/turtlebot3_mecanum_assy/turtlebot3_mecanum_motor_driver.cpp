@@ -51,12 +51,11 @@ bool Turtlebot3MotorDriver::init(String turtlebot3, int baudrate, char* debug_bu
     DEBUG_SERIAL.println("Failed to set baud rate(Motor Driver)");
     return false;
   }
+  result = dxl_wb.init(DEVICE_NAME, BAUDRATE, &log);
   setTorque(true);  // Enable Dynamixel Torque 바퀴만 토크 걸어주는 부분
   groupSyncWriteVelocity_ = new dynamixel::GroupSyncWrite(portHandler_, packetHandler_, ADDR_X_GOAL_VELOCITY, LEN_X_GOAL_VELOCITY);
   groupSyncReadEncoder_   = new dynamixel::GroupSyncRead(portHandler_, packetHandler_, ADDR_X_PRESENT_POSITION, LEN_X_PRESENT_POSITION);
   
-  result = dxl_wb.init(DEVICE_NAME, BAUDRATE, &log);
-
   if (turtlebot3 == "Burger") dynamixel_limit_max_velocity_ = BURGER_DXL_LIMIT_MAX_VELOCITY;
   else if (turtlebot3 == "Waffle or Waffle Pi") dynamixel_limit_max_velocity_ = WAFFLE_DXL_LIMIT_MAX_VELOCITY;
   else dynamixel_limit_max_velocity_ = WAFFLE_DXL_LIMIT_MAX_VELOCITY;
@@ -116,7 +115,7 @@ bool Turtlebot3MotorDriver::setTorque(bool onoff){
   for (int cnt = 0; cnt < 8; cnt++){
     result = dxl_wb.addBulkReadParam(dxl_arm_id[cnt], "Present_Position", &log);
   }
-
+  
   return true;
 }
 

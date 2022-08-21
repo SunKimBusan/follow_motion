@@ -133,13 +133,10 @@ void commandVelocityCallback(const geometry_msgs::Twist& cmd_vel_msg)
 
 void armCallback(const std_msgs::Int32MultiArray& msg){
   if (gyro_calibrated){
-        
-    int i = 0;
-    for(std::vector<int>::const_iterator it = msg->data.begin(); it != msg->data.end(); ++it){
-      arm_target_position[i] = *it;
-      i++;
+
+    for(int i = 0; i < 8; ++i){
+      arm_target_position[i] = msg.data[i];
     }
-    
   }
 }
 

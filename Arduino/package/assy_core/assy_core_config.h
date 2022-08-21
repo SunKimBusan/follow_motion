@@ -34,6 +34,8 @@
 #include <tf/transform_broadcaster.h>
 
 //#include <trajectory_msgs/JointTrajectory.h> //for arm command
+#include <vector>
+
 #include <std_msgs/MultiArrayLayout.h>
 #include <std_msgs/MultiArrayDimension.h>
 #include <std_msgs/Int32MultiArray.h>
@@ -42,7 +44,6 @@
 #include <turtlebot3_msgs/SensorState.h>
 #include <turtlebot3_msgs/Sound.h>
 #include <turtlebot3_msgs/VersionInfo.h>
-
 
 
 #include <TurtleBot3_mecanum_assy.h>
@@ -102,7 +103,7 @@ void soundCallback(const turtlebot3_msgs::Sound& sound_msg);
 void motorPowerCallback(const std_msgs::Bool& power_msg);
 void resetCallback(const std_msgs::Empty& reset_msg);
 // 아쎄이 팔 콜백 수정됨
-void armCallback(const std_msgs::Int32MultiArray& arm_msg);
+void armCallback(const std_msgs::Int32MultiArray& msg);
 
 // Function prototypes
 void publishCmdVelFromRC100Msg(void);
