@@ -2,6 +2,6 @@
 <launch>
   <arg name="filename" />
   <param name="filename" type="string" value="$(arg filename)" />
-  <node name="play_motion_khr" pkg="webots_ros" type="play_motion_khr" required="$(arg auto_close)" output="screen"/>
+  <node name="play_motion_opencr" pkg="webots_ros" type="play_motion_opencr" required="$(arg auto_close)" output="screen"/>
   <node name="read_motion" pkg="webots_ros" type="read_motion.py" />
 </launch>
