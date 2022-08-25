@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="filename" />
+  <param name="filename" type="string" value="$(arg filename)" />
+  <node name="play_motion_opencr" pkg="follow_motion_robot" type="play_motion_opencr" />
+  <node name="read_motion" pkg="follow_motion_robot" type="read_motion.py" />
+</launch>
